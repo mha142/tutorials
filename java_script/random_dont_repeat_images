@@ -25,11 +25,12 @@ Qualtrics.SurveyEngine.addOnload(function()
 	
 	randomIndex = Math.floor(Math.random() * imageUrls.length)
 	
-	var selectedImageUrl = imageUrls[randomIndex];
+
 	
 	if (randomIndex !== index) {
 	
 		// Display the selected image
+	var selectedImageUrl = imageUrls[randomIndex];
 	document.getElementById("imageToShow").src = selectedImageUrl;
 	
 	

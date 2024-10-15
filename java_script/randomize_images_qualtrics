@@ -1,0 +1,37 @@
+#add this HTML code in qualtrics question. The type of the question should be Text/Graphic:
+<center><img id="imageToShow" src="" alt="Image" width="256px" height="256px">
+</center>
+
+
+
+#click the java script button on the left, add this code:
+
+Qualtrics.SurveyEngine.addOnload(function()
+{
+	
+	
+	/*Place your JavaScript here to run when the page loads*/
+	
+	// Array of image URLs
+    const imageUrls = [
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JYsHXpBxQGvFTjD',
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_etS0AgqZRACouK6',
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OZHXc7Z2hKhkRbF',
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_G8GLDN3uRGj8RCV',
+		'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kdRtDxA9v72nmwv'	
+    ];
+	
+	
+	
+	// randomIndex = availableImages[Math.floor(Math.random() * availableImages.length)
+	randomIndex = Math.floor(Math.random() * imageUrls.length)
+	
+	
+	 var selectedImageUrl = imageUrls[randomIndex];
+								   
+        // Display the selected image
+        document.getElementById("imageToShow").src = selectedImageUrl;
+
+
+								 
+});

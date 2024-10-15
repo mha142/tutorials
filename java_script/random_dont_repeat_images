@@ -1,0 +1,53 @@
+Qualtrics.SurveyEngine.addOnload(function()
+{
+	
+	
+	/*Place your JavaScript here to run when the page loads*/
+	
+	// Array of image URLs
+    const imageUrls = [
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JYsHXpBxQGvFTjD',
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_etS0AgqZRACouK6',
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OZHXc7Z2hKhkRbF',
+        'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_G8GLDN3uRGj8RCV',
+		'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kdRtDxA9v72nmwv'	
+    ];
+	
+	
+	let index; 
+	
+	
+	randomImage();
+	
+	
+	function randomImage() {
+		
+	
+	randomIndex = Math.floor(Math.random() * imageUrls.length)
+	
+	var selectedImageUrl = imageUrls[randomIndex];
+	
+	if (randomIndex !== index) {
+	
+		// Display the selected image
+	document.getElementById("imageToShow").src = selectedImageUrl;
+	
+	
+	index = randomIndex	}						  
+	
+	else {
+		
+		randomImage();
+
+	}
+
+		
+		
+		
+		
+	}
+	
+	
+
+								 
+});

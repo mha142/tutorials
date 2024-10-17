@@ -1,0 +1,99 @@
+//add embedded data "ResponseTime1', 'ResponseTime2' ... for each question.
+
+//add ths in the html section of a question 
+<div style="display: flex; justify-content: space-between;"><img alt="Image" height="256px" id="imageToShow1" src="" width="48%" /> <img alt="Image" height="256px" id="imageToShow2" src="" width="48%" /></div>
+
+
+
+
+
+//add this in th ejava script section 
+
+
+
+Qualtrics.SurveyEngine.addOnload(function()
+{
+		 var startTime = new Date().getTime();
+	
+	// Dictionary of image URLs and names
+    const images = {
+        'Real1': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_xEfUhg4ld13Az81',
+        'Real2': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JYsHXpBxQGvFTjD',
+        'Real3': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_etS0AgqZRACouK6',
+        'Real4': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OZHXc7Z2hKhkRbF',
+        'Real5': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_G8GLDN3uRGj8RCV',
+        'Real6': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mgjRFB6eUUdnaC9',
+        'Real7': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_1PqpP70QArtl2g6',
+        'Real8': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_H2ZGeEY08Ges50Z',
+        'Real9': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HymcFMnCerC4m2w',
+        'Real10': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_u0wlRX1sRYEa6nS',
+        'Real11': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5mSkuD81YgOP7km',
+        'Real12': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_LFVSUFNTsDbt9gx'
+    };
+	
+	
+	let previousIndex; 
+	
+	
+	randomImage(1);
+	randomImage(2);
+	
+	// Function to select and display a random image
+	function randomImage(image_number) {
+		
+	const imageKeys = Object.keys(images); // Get the image names
+	let randomIndex = Math.floor(Math.random() * imageKeys.length);
+	
+
+	
+	if (randomIndex !== previousIndex) {
+	
+		// Display the selected image
+		
+		
+	//var selectedImageUrl = imageUrls[randomIndex];
+	//document.getElementById("imageToShow"+image_number).src = selectedImageUrl;
+		
+		 // Get the name and URL of the selected image
+         var selectedImageName = imageKeys[randomIndex];
+         var selectedImageUrl = images[selectedImageName];
+		
+		
+		// Display the selected image
+          document.getElementById("imageToShow" + image_number).src = selectedImageUrl;
+
+	
+	previousIndex = randomIndex;	//store the current index
+	}						  
+	
+	else {
+		
+		randomImage();
+
+	}
+		
+	}//close of function randomImage
+
+	
+	 Qualtrics.SurveyEngine.addOnPageSubmit(function() {
+        // Record the time when the Next button is clicked
+        var endTime = new Date().getTime();
+        
+        // Calculate the time spent on the page (response time)
+        var responseTime = endTime - startTime; // Time in milliseconds
+
+        // Convert the response time to seconds (optional)
+        var responseTimeInSeconds = responseTime / 1000;
+        
+        // Debugging: log the response time
+        console.log("Response time1: " + responseTimeInSeconds + " seconds");
+
+        // Store the response time as embedded data
+        Qualtrics.SurveyEngine.setEmbeddedData('ResponseTime1', responseTimeInSeconds); //add embedded data "ResponseTime1', 'ResponseTime2' ... for each question. 
+    });
+	
+	
+	
+	
+								 
+});

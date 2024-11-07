@@ -1,0 +1,38 @@
+//this code will save embedded data  based on the selected choice "left of right"
+
+
+Qualtrics.SurveyEngine.addOnload(function()
+{
+	
+	var currentQuestionID = this.getQuestionInfo().QuestionID
+	
+	
+	Qualtrics.SurveyEngine.addOnPageSubmit(function() {
+		
+		 var questionObject = Qualtrics.SurveyEngine.getInstance(currentQuestionID)
+        var currentResponse = questionObject.getSelectedChoices()[0] //in case more than one is selected, it will only work here to take one!   
+        var theQuestionInfo=questionObject.getQuestionInfo()
+        var choicesObject=theQuestionInfo.Choices
+        var thisChoiceObject=choicesObject[currentResponse]
+        var currentChoiceText=thisChoiceObject.Text
+
+        console.log("Number of the current choice is " + currentResponse)
+        console.log("Text of the current choice is " + currentChoiceText)
+
+
+        //alert("Result: " + currentChoiceText + "\nwill be available to future questions as: \n$" + "{e://Field/" + 'NvR_s_b_1_selectedChoice' + "}")
+
+        if (currentChoiceText == 'Right') {
+		
+		//Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', currentChoiceText)
+					Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', 'Real')
+
+		}
+		
+		else if (currentChoiceText == 'Left') {
+			Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', 'NVAE')
+		}
+
+
+	});
+	

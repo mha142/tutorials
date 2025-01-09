@@ -1,0 +1,610 @@
+#first question######
+  #HTML######
+  <div style="font-size: 14px; text-align: center; margin-bottom: 10px;">
+    Note: Images may take moments to load
+</div>
+
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
+	
+	
+    
+     <div style="text-align: center; width: 48%;">
+    <img src="" id="imageToShow1" height="256px" alt="Image 1" style="width: 100%;">
+    <div style="margin-top: 10px;">
+        <span style="font-size: 16px;">This face is .... </span><br>
+        <span style="font-size: 14px; color: gray;">(Move the slider to answer)</span><br>
+        <input type="range" id="slider1" min="0" max="100" value="50" style="width: 100%; margin-top: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+            
+            <span style="font-size: 15px; text-align: center; width: 20%;">
+                0%<br><em>Untrustworthy</em>
+            </span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">25%</span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">50%</span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">75%</span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">
+                100%<br><em>Trustworthy</em>
+            </span>
+        </div>
+    </div>
+</div>
+    
+	
+	
+	
+	
+    <div style="text-align: center; width: 48%;">
+    <img src="" id="imageToShow2" height="256px" alt="Image 2" style="width: 100%;">
+    <div style="margin-top: 10px;">
+        <span style="font-size: 16px;">This face is ....</span><br>
+        <span style="font-size: 14px; color: gray;">(Move the slider to answer)</span><br>
+        <input type="range" id="slider2" min="0" max="100" value="50" style="width: 100%; margin-top: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+            
+            <span style="font-size: 15px; text-align: center; width: 20%;">
+                0%<br><em>Untrustworthy</em>
+            </span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">25%</span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">50%</span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">75%</span>
+            <span style="font-size: 15px; text-align: center; width: 20%;">
+                100%<br><em>Trustworthy</em>
+            </span>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+
+  #Java Script######
+  Qualtrics.SurveyEngine.addOnload(function() {
+    var startTime = new Date().getTime();
+
+    // Dictionary of image URLs and names
+   	// Dictionary of image URLs and names
+ 
+	 const sgan_images = {
+		's1': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_56se9SFWyE9ugKL',
+    's2': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_c1ijvaLo1rT8955',
+    's3': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_I0x5gIgsIISZ0OL',
+    's4': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_FtnfxwNUo4vloC9',
+    's5': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_y6BKJ0yMQjmDvI0',
+    's6': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4CnIlEY0bmStYZO',
+    's7': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DovX2ry2TFPfu1V',
+    's8': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_jF7QaZNd3gn7S1D',
+    's9': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mOURN5xyazrnMNQ',
+    's10': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_xhanxXdKJ1QofFd',
+    's11': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_rRotIm77Rt0yQCb',
+    's12': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_491jqX2rH5qHQNj',
+    's13': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_w7M7DP2HuGnETcY',
+    's14': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kjbwtpocVUWm2G2',
+    's15': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_byg3LQSKEtxKk2r',
+    's16': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_SEwZHaH6A67DTim',
+    's17': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EqBKRJwYJYkdJJ0',
+    's18': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_g7PNQlkfUr9TDyo',
+    's19': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5DnJfTqgji0qWXW',
+    's20': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_nXiTnI1AyNKennS',
+    's21': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_QEKeONxewL8exBg',
+    's22': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0lIqWQ5JJ7XEvss',
+    's23': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Amy1baP8pCA6mGF',
+    's24': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0o2OCZLR5JG57WK',
+    's25': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_nAG7PCjZ9rcf6FF',
+	's26': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Jh4nOaa6lUDjl9b',
+'s27': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_nSn1YXfCjbfenMj',
+'s28': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uQd5gGY3lWV6Cp1',
+'s29': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JrfI8MR4m6cKaLm',
+'s30': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_NdqtVZsaBi6H6Ss',
+'s31': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_LncX1teB3r8WMbV',
+'s32': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_yVC1T6Ep85IivKV',
+'s33': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Jbnx4WW4GOkd8M0',
+'s34': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2tQWtgl0niTUV95',
+'s35': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Q4wlzZ8JCWhigwC',
+'s36': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UNI630zRyggm70Q',
+'s37': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_AhSOQU1AWmHWTHg',
+'s38': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_pzeRlZxMZPwl8QN',
+'s39': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MD50FSknyENlp8t',
+'s40': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5sBAJyReHqj7qVn',
+'s41': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_r8KYo5PNGuiNncf',
+'s42': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_PMW4YUSTAVIwdJ3',
+'s43': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_XHsXGaeGIckNIyP',
+'s44': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2W2CtJTeCAK7JrR',
+'s45': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wB530UmZ4lsco98',
+'s46': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OewyVZt5c092Kjt',
+'s47': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2sbJXbvwhAiZgrE',
+'s48': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HQbjreNSHtunYXb',
+'s49': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UH0ctdTaoWzYhW4',
+'s50': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_srOWHlkmYpzXWA7',
+'s51': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_9GmtxtZ5EOL57kp',
+'s52': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_gOqRMJNKrMu73kX',
+'s53': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_pw7NVK1Q1uD5tAn',
+'s54': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_VQgFkyzJeFpR9jE',
+'s55': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_7hEFIau9RacXMlP',
+'s56': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UaXCSRzveeyQhmq',
+'s57': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5s366Y7P6DJxWTO',
+'s58': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_88NGAU7M6xxo2Bh',
+'s59': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_hFhPm4BjXmQJDsF',
+'s60': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2v7yJfbKkhRSOMr',
+'s61': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HDdtqAFf0vHK0y2',
+'s62': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_j3Y5J9GQaxjjzBP',
+'s63': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Zs9PsNVDJOaLWsU',
+'s64': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ouR9QkUHAODqtjC',
+'s65': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_jtwAo7KTc5ILa9p',
+'s66': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GedgfyhWf4IMO7y',
+'s67': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kATdnEDhO0WPJoF',
+'s68': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Ql0VkCq3RkebLqP',
+'s69': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_25PvFg13AfYk2rk',
+'s70': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_K0EVd21VEHxa7Wq',
+'s71': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_lfNs1sNWtH5jzlB',
+'s72': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_tOlr4tssHlV4WHe',
+'s73': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_IgQGfkirYTNIl3Z',
+'s74': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OREDyHhQSPVdoie',
+'s75': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_U0qwh5l0DdX4HcL',
+'s76': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0YLh436OETwo2Gj',
+'s77': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_bxO6pE3u6TY9TcK',
+'s78': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_awnXog3RKXNxeF4',
+'s79': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_osKAFRFB8eLv3Yb',
+'s80': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_gn7ohu8uGOb7qbV',
+'s81': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_WkV5E9IlovsBxzf',
+'s82': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_A8OqC751bQmHhR7',
+'s83': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HIDC2Rcxvv89VqC',
+'s84': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_KvLDcLvTOPpDI7G',
+'s85': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_W9KEHJojf080LHC',
+'s86': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_efXZSkUzi1nnftR',
+'s87': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_f0K5Gl10qrvKcXW',
+'s88': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Jwoi3be1Ir4BWx1',
+'s89': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_WNOyn9DnQbvJTbj',
+'s90': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_VOgZWylnb11eRlz',
+'s91': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mC4yfiM73ZvCxHX',
+'s92': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0DYoFXF3kXr6UDR',
+'s93': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_d4pChMcrtmOR86f',
+'s94': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_O70qa5Ugk00SjvK',
+'s95': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_LWSvQrt00piqzxr',
+'s96': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_LUGND9ABQHsPQ0i',
+'s97': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_qWAfixr2M0QfP1d',
+'s98': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_qMXLPvvoRMIMkcM',
+'s99': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MHEAd7fMH44bgoW',
+'s100': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_pPdkkpWxlo9HRQO',
+'s101': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MqjfWI7x7sKUDHI',
+'s102': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_x0ksAIAFGdAHyps',
+'s103': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_KbO3izTi7iwev9k',
+'s104': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_gZgmp1j9Uyl9DpY',
+'s105': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DDg7QBSU9I2ZQMV',
+'s106': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Lovkf5XjSJs1hJB',
+'s107': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kYan71pfFTE09R9',
+'s108': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_lC2nDRlOIfatQ24',
+'s109': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wntwLiCPuURWEeu',
+'s110': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Ipdwph2fHNk3vcd',
+'s111': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_C2g5bz38EkHqjUy',
+'s112': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_f27KD0CCwjESziQ',
+'s113': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_zhtFpsHBm6ZPhxn',
+'s114': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_WoCphbyeCwpMTGX',
+'s115': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_h0EF9Fpy8cu3wlI',
+'s116': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_PgXIcIXOIjj85Sk',
+'s117': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0mGCPV2xLyrWEfc',
+'s118': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ebokKPMAjHSYaT1',
+'s119': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kLwzxE2HdF9b9vw',
+'s120': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_zwLjP3wyPknrwtl',
+'s121': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_VeMnHuSYTcxPj6K',
+'s122': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_sAD7gVLulFDhtgK',
+'s123': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_erDYprxFZZ7RxbB',
+'s124': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Pr3JSdit0aPRYKU',
+'s125': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4jfYeVd1WEPFTup',
+'s126': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Ao2JoCifSI1PsC9',
+'s127': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_9oXITrDxMdM5uat',
+'s128': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UGtX51OrbzE7hpP',
+'s129': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Xd9BIngf41IKu0E',
+'s130': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wTAHg3aVaq0tFKp',
+'s131': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_TOyQfiA5fYPF2oN',
+'s132': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_15g7QZoIMUPVvZx',
+'s133': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uEOsNzdbl7RDBtn',
+'s134': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EepWuFvKKdvva37',
+'s135': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wTdalHvqjuEPgwP',
+'s136': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_QQfOCr781FDUpfe',
+'s137': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_p3kJTG9Sigx0ZIb',
+'s138': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5bncOmHT980u3pD',
+'s139': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uUqnKbFXgn3TY0T',
+'s140': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_m5qYl5AmdcrJ8w7',
+'s141': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_J4bFR8KqoHO0TU6',
+'s142': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_o6Vl1U9R5B0lKCm',
+'s143': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_biFMU5v3PqO89y3',
+'s144': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_YZj6mRk7EnDcJiu',
+'s145': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UdZcpDozcJe4pUi',
+'s146': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_sba5AUK5xaPA3nC',
+'s147': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_rtbIEnmSxn3Iy5W',
+'s148': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0x25pX2b7A4jM1s',
+'s149': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_sxaz8c5PUKFqAOK',
+'s150': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_g84XZ0fu3AvOjVl',
+'s151': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_KVFW1nsJKeYpQnC',
+'s152': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GfPQfiOFLPVN9Pa',
+'s153': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uBWhAcvZEcuoMUa',
+'s154': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_R7USI8BeQcft7qF',
+'s155': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_SqMdaU8l8YDswtT',
+'s156': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UwCU3GbKPVuywJL',
+'s157': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Y7EBmgP6YHmeiBO',
+'s158': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_efichBSQh9KF6xP',
+'s159': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_KUntWVzGdmgs3BL',
+'s160': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_7A7qXEpfSD06dwV',
+'s161': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_9w7FAw3nGPnnW6K',
+'s162': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_gmbAP6ch7ojM7sn',
+'s163': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mrdGneo6WSRkUM6',
+'s164': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_cxnRRHtR3vYZSPo',
+'s165': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_WGcqfGKwS8eqmdk',
+'s166': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_3W3FwbngM5ypb8N',
+'s167': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_tHTbcxfuYfD2XT9',
+'s168': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_eWMy7xlm6DID7CR',
+'s169': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6darLDfjle6wSjf',
+'s170': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DntXO71ZQ08z7YX',
+'s171': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5agzWMojOSZ9tvU',
+'s172': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6clvT7V2efJY8Y2',
+'s173': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6clvT7V2efJY8Y2',
+'s174': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_t1XV95RboAZhdgJ',
+'s175': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_vouEZ3cSjcMlow3',
+'s176': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_efNPHavKrqxvoWi',
+'s177': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_x1e3doi0sGoa1nS',
+'s178': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_zJLM5p0U5btKUIy',
+'s179': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_K4RsTAqguitlPBk',
+'s180': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GInpFAIf8axM1tg',
+'s181': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_fuJ0RTNQiQMs2PK',
+'s182': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_u2uprzVTh3rtAsf',
+'s183': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2TdfLv48qJfFGZc',
+'s184': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OeyFFZsShvAPFN5',
+'s185': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_H6UE4awO58NDExR',
+'s186': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EhdRTp1NsynxkMS',
+'s187': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_xknWFYc2DmtbMr4',
+'s188': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_s8TUeHKoLEQjKJ4',
+'s189': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_i0ovfiArIijJ93A',
+'s190': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4BxUFYv2NiQH1jv',
+'s191': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_f5yCegjU4OnYX6K',
+'s192': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_qHcHfgrYyL6RktP',
+'s193': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_14U0BjykQbJhXnZ',
+'s194': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_oZDIoqSnwPkAmdR',
+'s195': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GMYkADbgwpy5CNo',
+'s196': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5LChIqK3puZqTsO',
+'s197': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JQE9ckvtthBuNFJ',
+'s198': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Jx8al08TZPtLSz8',
+'s199': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_z09cwL9xsdoBU53',
+'s200': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2j4LO4r8QP6HhZE'
+		
+    };
+	
+	 const real_images = {
+	'r1': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4wB6PjX7riM89il',
+	'r2': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DUzwnwy8lFjuXUx',
+	'r3': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HCdl5zgu2LvJakI',
+	'r4': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_FcURrZq2tlhw38D',
+	'r5': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_7z8CW5footdANwj',
+	'r6': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MpAXpRMhCXATUv1',
+	'r7': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6RG5LnDKEbq1VUf',
+	'r8': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4OiXaRbrAqD3T3x',
+	'r9': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_9LFhYAMK5kBa4kB',
+	'r10': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_tvj0Kz62n6HkYcd',
+	'r11': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4fMRUEm121XlcRe',
+	'r12': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Po6mVVuB9gX6jDd',
+	'r13': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uTyYGf0s58BOCc6',
+	'r14': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_dUAHZGalippdqk6',
+	'r15': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_vyAQGlyLICxaSAZ',
+	'r16': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_xTCXHjIJplAWe94',
+	'r17': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_SOH7pHOpcF7LuGC',
+	'r18': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_othOp0C9O4Gj4bW',
+	'r19': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_QTXkT4qIa7kqwJY',
+	 'r20': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DidtKGQBoHZwea0', 
+		 'r21': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_gPnS6QNeGNkwCL6', 
+		 'r22': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Kxha36RxTmlnHmq', 
+		 'r23': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_paYSvOBOckhJS6H', 
+		 'r24': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MPDkKslnkbddwZz', 
+		 'r25': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_km6eRdGlJUMKIFr', 
+		 'r26': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wIyPEzByiiSmbyq', 
+		 'r27': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_QcPf7oxgEFpuQDm', 
+		 'r28': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Z8fe3iJhI3w0N6c', 
+		 'r29': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_omte3XE9yLMqiez', 
+		 'r30': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DY4bWDZrM4MlmAC', 
+		 'r31': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ufUixzSg28Hq11V', 
+		 'r32': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_slcC27lt8VG5yJS', 
+		 'r33': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_PjTKgP37VUnmd7c', 
+		 'r34': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_cO1NnpATaBfMku0', 
+		 'r35': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_zwbruc3OvBMOAly', 
+		 'r36': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_yZy85qKRYtDypi2', 
+		 'r37': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_dVnCAHBvxK1RUAh', 
+		 'r38': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mzFCRvJghC1Z8q4', 
+		 'r39': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UORlqBWJHD8qUV2', 
+		 'r40': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_KbDWi42GSVflHfp', 
+		 'r41': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mByeMGJ0l4wpOTs', 
+		 'r42': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_aS6htVf14gGQ0hB', 
+		 'r43': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_BMq2XhcHgmTQhZL', 
+		 'r44': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uyUb7SIMrA97oAR', 
+		 'r45': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_iaxeegUKJeUIXU6', 
+		 'r46': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ygjQrldF31qaSBh', 
+		 'r47': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_aJTWsmR4ibO5mDG', 
+		 'r48': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OVt4Guo7vdVSgZF', 
+		 'r49': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_A7SZ9sRqA14Wngo', 
+		 'r50': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_r6MohPb4VeXYLvr', 
+		 'r51': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_sr90kNbzaRL7q37', 
+		 'r52': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HVfHUwKSGfYePIP', 
+		 'r53': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_xMgLn1u87cfRCT2', 
+		 'r54': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_FgL0lHItM7dsEhJ', 
+		 'r55': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_jrb3idh9TjybB8o', 
+		 'r56': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_oKNdndTDt7ERia8', 
+		 'r57': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_iXt7sF8QwG73ntz', 
+		 'r58': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_3fivFW2MCy4vXLP', 
+		 'r59': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_X2PCDZXac4X6XY7', 
+		 'r60': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_YXMynNiqMT6LIXI', 
+		 'r61': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_dvvDKNSFwr7PBGR', 
+		 'r62': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wmt7mZbmJfwFGNe', 
+		 'r63': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ovFSXSPryhrgJM1', 
+		 'r64': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_iRB0BGBzieb3c2h', 
+		 'r65': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_O8qB6zlsw9zC5PQ', 
+		 'r66': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_eJBnCA2YD96mWIu', 
+		 'r67': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EHUbBnFEHvxH1wz', 
+		 'r68': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_COakFWPuSiyFmYz', 
+		 'r69': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_u11m2l1LAxO6vKE', 
+		 'r70': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_eQicGNERIcWtBv1', 
+		 'r71': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kXRgoQoVQkUqvzG', 
+		 'r72': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_mskSGlGN5xUSocZ',
+		 'r73': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_WLsvI65QpkXDCIO', 
+		 'r74': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6ZXjTlac5O6bZc9', 
+		 'r75': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_vdX0a1lNA7IVD60',
+		 'r76': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_13DWul1xuU7OnXm',
+		 'r77': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_yoTp5wVBQ518sgU', 
+		 'r78': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JdKOQfzThhQq0cZ',
+		 'r79': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_bNziYAgskodoFXZ', 
+		 'r80': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_SQQKap3rO0Q15UV',
+		 'r81': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_uZpWD53VGkYnaXk', 
+		 'r82': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ngRglW0QCgFAaWO',
+		 'r83': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5O8Hc7YtPYakkJf', 
+		 'r84': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Swlls8acRmZ0eZG', 
+		 'r85': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_THpstBOj34FRjat',
+'r86': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_QVKsIp2iB8CzUtN',
+'r87': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_1NwRK9ePh6TaVyp',
+'r88': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GzfWiOcx0Xel9Ac',
+'r89': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_CdxaTr3KRX3SoaJ',
+'r90': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6OzYlFbqYGoXxFB',
+'r91': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_FM2Yf1fuRF2OOgJ',
+'r92': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ysnYscZroEnkiNL',
+'r93': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_NCiycDfyVwlmiKZ',
+'r94': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_bUPZdRIqOCRvgQ6',
+'r95': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_80Gkijk97LoIHt5',
+'r96': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_cp6Xy0lQd5KCny3',
+'r97': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_hkazchtzUhgaLPp',
+'r98': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_tlR2ymNP05D5hvi',
+'r99': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wxh7DGb4tz6brhA',
+'r100': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JxiGMD992arfG3z',
+'r101': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DnezFeOYoJgPx3k',
+'r102': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_YnOumZRVJOTSNoC',
+'r103': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4rlSwGZYnKsws4O',
+'r104': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_O5H65T3BQKh7PtQ',
+'r105': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_slYQlNKjzm3TxoI',
+'r106': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OZXsGVFvAAp8TI2',
+'r107': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Zcwy4A1IHagxZt7',
+'r108': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MiqtFWpluXieILD',
+'r109': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_zVnAgqIFCFlwkaJ',
+'r110': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_VQUbQzsX4xHx24C',
+'r111': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2LLj50DBtrRxt7W',
+'r112': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_lbGhfDzeJklmk2S',
+'r113': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_QCmjyR0SN7jVHH1',
+'r114': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_sEzeB62eHvAwHiB',
+'r115': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6NWBikB6ueoEGjJ',
+'r116': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_S28RzivgUR4C7wU',
+'r117': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_YiDWn2XVmnLdT28',
+'r118': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_FYtToAAfkBVz1JM',
+'r119': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_jrcz3u9P9583KJc',
+'r120': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_CVYtxTOiz5lWjFO',
+		 'r121': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MXoRNio15PRpBK0',
+'r122': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DLFT3w2dwIl5uWc',
+'r123': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_W8HqK0lhbVlJMlC',
+'r124': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Qi0Fu8GTfTrUj52',
+'r125': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_hyEUsQJ13yWDilF',
+'r126': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4quTwLWKLPPxbYG',
+'r127': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HpvwtopMGmrsjCB',
+'r128': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_12LCXyUj7MAgner',
+'r129': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_7qyDWbYgf7JUbnP',
+'r130': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_J1aPzKMM2zz3kES',
+'r131': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_P7n7gNJJh5iLtVI',
+'r132': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_lwFcyTenwsQTrnH',
+'r133': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_NQ1Yr279mCTkjjE',
+'r134': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_2JGgtJuArxrB65I',
+'r135': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_h0n2GQWEMOWm4YN',
+'r136': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_DBFl2zXHXJqeIbC',
+'r137': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_SkMTGhvBVVuFKyI',
+'r138': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_HMVZsJG98dbB3j8',
+'r139': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_yRntNljCr3XNjzi',
+'r140': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_9TF4Lb8OcUQaNN2',
+'r141': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_xm0ISku2qNJN5fJ',
+'r142': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EYdYlXelCvwHKgi',
+'r143': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5frgfD4kztpryXi',
+'r144': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_TkdaMDJbmIdoxPN',
+'r145': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GBDXY7c4opQYv7c',
+'r146': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_fbRNFuIlkZinG5U',
+'r147': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_vIM7AeQQ9KNeubO',
+'r148': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_8g5u7FEVavTtNJC',
+'r149': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EqjFFGfSjObtdCH',
+'r150': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_EUBE6C13IutvbqQ',
+'r151': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_j5VNNpzdOkbJV4G',
+'r152': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kxbmRdjvf8uKais',
+'r153': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wmSQtn1JweosXRy',
+'r154': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_eLJyS4jBfomfZ8s',
+'r155': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_9UlIO6ZSD3ei23Q',
+'r156': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_n5Pcuch5ZmWCaIO',
+'r157': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JvmkZgs0y9Rtdfh',
+'r158': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0IP0ycpCXMIDDou',
+'r159': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_p7UeprrPgfA9yKY',
+'r160': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_AeNKpB4gn4J8MQV',
+'r161': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_CaH6zZFtPPWyzmJ',
+'r162': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_SyaGtBa9zxp8ERP',
+'r163': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_A7MS7kEqQ0GVsg9',
+'r164': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_B2vHvuAFO0BEu9C',
+'r165': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_UJf41uRLIkkY1GZ',
+'r166': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Kv4YlGSS0Mlto68',
+'r167': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_hhtpLVzumzAajQL',
+'r168': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_L02Zoi58KR3FU7C',
+'r169': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_VdfGsqFZpRCjFeQ',
+'r170': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_FnihY70BqsTIIKi',
+'r171': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_VGPaaD9SVVeaGzM',
+'r172': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Xr9CPkKxVfhHOTg',
+'r173': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4rbbAx8MPGoycKO',
+'r174': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_rszJQmPMopDCJZw',
+'r175': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_cZcG4UphM0wZt3c',
+'r176': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_JnK4fVUa3OQWa1z',
+'r177': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_u9uIffcw0eBKJJy',
+'r178': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_kGkcmoOKXhR6khL',
+'r179': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Bq4UPz2RXgwpaqA',
+'r180': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_u2wiWvcyHLdoxFC',
+'r181': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_yI5a19VNZUKjBWK',
+'r182': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ov15vEnIUJSSKdm',
+'r183': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5KLOrQXahK89XJy',
+'r184': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_lsq3EMh4ECPPz2N',
+'r185': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_MdjCJSwUdQwDrCe',
+'r186': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ahcbdBVgLT79jNd',
+'r187': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Stz5ZD7eSZkCkvi',
+'r188': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_yrWkEeE3Gu7deD3',
+'r189': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_OcyqEf1PEKOKoK4',
+'r190': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_pMzQxBWXeLflEeI',
+'r191': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ZfiQYazcBpDQYtg',
+'r192': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5LWrvv8dgcOOaKz',
+'r193': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_vNy7Z2YjscML89C',
+'r194': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_wbtqXdZXZUxZBjh',
+'r195': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_RXngIqYWwNefEtg',
+'r196': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_BPEt2Zv6TLgIlvA',
+'r197': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_codocmjOUcaHdEo',
+'r198': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_3OphyXKSHDgPx7X',
+'r199': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_GDxsUzMOarfufZh',
+'r200': 'https://clemson.yul1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_NhnucOIGU7yQOj4'
+	 };
+
+    let previousIndex; 
+
+    randomImage(1, 'real');
+    randomImage(2, 'sgan');
+
+    // Function to select and display a random image
+    function randomImage(image_number, image_type) {
+        var images;
+        
+        if (image_type === 'sgan') {
+            images = sgan_images;
+        } else if (image_type === 'real') {
+            images = real_images;
+        } else {
+            console.error('Invalid image type:', image_type);
+            return;
+        }
+
+        if (!images || typeof images !== 'object') {
+            console.error('Images object is undefined or not an object:', images);
+            return;
+        }
+
+        const imageKeys = Object.keys(images); // Get the image names
+        let randomIndex = Math.floor(Math.random() * imageKeys.length);
+
+        // Ensure a new random index is picked
+        while (randomIndex === previousIndex && imageKeys.length > 1) {
+            randomIndex = Math.floor(Math.random() * imageKeys.length);
+        }
+
+        // Get the name and URL of the selected image
+        var selectedImageName = imageKeys[randomIndex];
+        var selectedImageUrl = images[selectedImageName];
+
+        // Display the selected image after ensuring the page has completely loaded
+        setTimeout(() => {
+            const imageElement = document.getElementById("imageToShow" + image_number);
+            if (imageElement) {
+                imageElement.src = selectedImageUrl;
+                Qualtrics.SurveyEngine.setEmbeddedData('RvS_s_b_2_image' + image_number, selectedImageUrl);
+                previousIndex = randomIndex; // Store the current index
+            } else {
+                console.error('Image element not found for ID:', "imageToShow" + image_number);
+            }
+        }, 500);
+    }
+
+    Qualtrics.SurveyEngine.addOnPageSubmit(function() {
+		// Get slider values
+            const slider1Value = document.getElementById('slider1').value;
+            const slider2Value = document.getElementById('slider2').value;
+
+            // Save values as embedded data
+            Qualtrics.SurveyEngine.setEmbeddedData('RvS_s_b_2_Slider1_value', slider1Value);
+            Qualtrics.SurveyEngine.setEmbeddedData('RvS_s_b_2_Slider2_value', slider2Value);
+		
+        // Record the time when the Next button is clicked
+        var endTime = new Date().getTime();
+        var responseTime = endTime - startTime; // Time in milliseconds
+        var responseTimeInSeconds = responseTime / 1000;
+
+        // Store the response time as embedded data
+        Qualtrics.SurveyEngine.setEmbeddedData('Response_time_RvS_s_b_2', responseTimeInSeconds); // change Q1 for every question
+    });
+});
+
+
+#second question ######
+
+Qualtrics.SurveyEngine.addOnload(function()
+{
+    
+    var currentQuestionID = this.getQuestionInfo().QuestionID
+    
+    
+    Qualtrics.SurveyEngine.addOnPageSubmit(function() {
+        
+         var questionObject = Qualtrics.SurveyEngine.getInstance(currentQuestionID)
+        var currentResponse = questionObject.getSelectedChoices()[0] //in case more than one is selected, it will only work here to take one!   
+        var theQuestionInfo=questionObject.getQuestionInfo()
+        var choicesObject=theQuestionInfo.Choices
+        var thisChoiceObject=choicesObject[currentResponse]
+        var currentChoiceText=thisChoiceObject.Text
+
+       // console.log("Number of the current choice is " + currentResponse)
+        //console.log("Text of the current choice is " + currentChoiceText)
+
+
+        //alert("Result: " + currentChoiceText + "\nwill be available to future questions as: \n$" + "{e://Field/" + 'NvR_s_b_1_selectedChoice' + "}")
+       
+        if (currentChoiceText == 'Left') {
+            Qualtrics.SurveyEngine.setEmbeddedData('RvS_s_b_2_selectedChoice', 'Real')
+        }
+		
+		 else if (currentChoiceText == 'Right') {
+        
+        //Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', currentChoiceText)
+                    Qualtrics.SurveyEngine.setEmbeddedData('RvS_s_b_2_selectedChoice', 'SGAN')
+
+        }
+		 else if (currentChoiceText == 'Both') {
+        
+        //Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', currentChoiceText)
+                    Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', 'Real and SGAN')
+
+        }
+		 else if (currentChoiceText == 'None') {
+        
+        //Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', currentChoiceText)
+                    Qualtrics.SurveyEngine.setEmbeddedData('NvR_s_b_1_selectedChoice', 'Not Real nor SGAN')
+
+        }
+		
+
+
+    });
+    
+
+});
+
+Qualtrics.SurveyEngine.addOnReady(function()
+{
+	/*Place your JavaScript here to run when the page is fully displayed*/
+
+});
+
+Qualtrics.SurveyEngine.addOnUnload(function()
+{
+	/*Place your JavaScript here to run when the page is unloaded*/
+
+});
+  
+
+  
